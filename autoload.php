@@ -12,7 +12,6 @@ class MyAutoload
 
 		if(strpos($class,"PDO"))
 		{
-			echo "PDO";
 			return;
 		}
 
