@@ -1,9 +1,6 @@
 <?php
+
 namespace App\Entity;
-
-require_once "Db/DataBase.php";
-
-use Db\DataBase;
 
 interface BaseEntityInterface
 {
@@ -20,7 +17,7 @@ abstract class BaseEntity implements BaseEntityInterface
 	{
 		$this->table = $table;
 
-		$dataBase = new DataBase();
+		$dataBase = new \App\Db\DataBase();
 
 		$this->db = $dataBase->getConnection();
 	}

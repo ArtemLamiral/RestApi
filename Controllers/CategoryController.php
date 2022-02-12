@@ -15,6 +15,7 @@ abstract class BaseController
 				$this->name($args);
 			}
 		}
+
 		throw new Exception("Could not call the method : ".$name, 1);
 	}
 }
@@ -31,7 +32,7 @@ class CategoryController
 	//api/getAll
 	public function getCategories()
 	{
-		$this->categories = $category->findAll();
+		$categories = $this->category->findAll();
 		var_dump($categories);
 	}
 

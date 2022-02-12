@@ -1,6 +1,6 @@
 <?php
 
-namespace Db;
+namespace App\Db;
 
 require_once "dbconfig.php";
 
@@ -20,9 +20,13 @@ class DataBase
 
 	private  $conn = null;
 
+	public function __construct()
+	{
+		$this->init();
+	}
+
 	public function init()
 	{
-
 		$this->host =  'localhost';
 	    $this->user = 'mysql';
 		$this->password = '';
@@ -32,7 +36,6 @@ class DataBase
 
 	public function getConnection()
 	{
-		$this->init();
 
 		$connection = $this->$conn;
 
@@ -42,7 +45,7 @@ class DataBase
 		}
 
 		try{
-			 $connection = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->user, $this->password);
+			 $connection = new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->user, $this->password);
 		}catch(PDOException $exception){
 			echo "Connection error. Can not connect with host:".$this->host." and user:".$this->user;
 

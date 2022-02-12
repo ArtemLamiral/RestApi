@@ -4,6 +4,14 @@ require_once "autoload.php";
 
 class Routing
 {
+
+	private $defaultController;
+
+	public function __construct()
+	{
+		$this->defaultController = '';
+	}
+
 	public function route($url)
 	{
 		$routes = explode("/",$url);

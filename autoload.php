@@ -5,17 +5,11 @@
 
 class MyAutoload
 {
+
 	public static function autoload($class)
 	{
 		$class = str_replace("App\\", "", $class);
 		$fileClass = $class.".php";
-
-		if(strpos($class,"PDO"))
-		{
-			return;
-		}
-
-		echo $fileClass."<br><br>";
 
 		if(file_exists($fileClass))
 		{
